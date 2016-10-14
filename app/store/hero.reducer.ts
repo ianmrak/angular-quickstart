@@ -1,5 +1,5 @@
 import { HERO_ACTIONS } from '../actions/hero.actions';
-import { Hero } from '../app/hero';
+import { Hero } from '../hero';
 
 const INITIAL_STATE: Hero[] = [];
 

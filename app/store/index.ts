@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 const persistState = require('redux-localstorage');
 import { heroReducer } from './hero.reducer';
+import { Hero } from '../hero';
 
 export interface IAppState {
-    counter?: number;
+    heroes?: Hero[];
 
 };
 
@@ -13,6 +14,6 @@ export const rootReducer = combineReducers<IAppState>({
 });
 
 export const enhancers = [
-    persistState('counter', { key: 'ng2-redux/examples/counter' })
+    persistState('heroes', { key: 'ng2-redux/examples/counter' })
 ];
 

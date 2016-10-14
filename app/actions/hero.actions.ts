@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {NgRedux} from 'ng2-redux';
 
-import {Hero} from '../app/hero';
-import {HeroService} from '../app/hero.service';
+import {Hero} from '../hero';
+import {HeroService} from '../services/hero.service';
 
 export const HERO_ACTIONS = {
     CURRENT_HERO: 'CURRENT_HERO',
@@ -20,10 +20,14 @@ export class HeroActions {
             .then(heroes => this.ngRedux.dispatch(this.setHeroes(heroes)));
     }
 
-    private setHero(keyword: string) {
+    setCurrentHero(hero: Hero): void {
+        this.ngRedux.dispatch(this.setHero(hero));
+    }
+
+    private setHero(hero: Hero) {
         return {
             type: HERO_ACTIONS.CURRENT_HERO,
-            payload: keyword
+            payload: hero
         };
     }
 
